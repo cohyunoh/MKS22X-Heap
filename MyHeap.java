@@ -8,8 +8,14 @@ public class MyHeap{
       int temp = data[(2*index + 1)];
       data[(2*index + 1)] = data[index];
       data[index] = temp;
-      index = (2*index + 1)
-      pushdown(data, size, index;)
-    }else if(data[(2*index + 2)] > data[index])
+      index = 2*index + 1;
+      pushDown(data, size, index);
+    }else if(data[(2*index + 2)] > data[index]){
+      int temp = data[(2*index + 2)];
+      data[(2*index + 2)] = data[index];
+      data[index] = temp;
+      index = 2*index + 2;
+      pushDown(data, size, index);
+    }
   }
 }
