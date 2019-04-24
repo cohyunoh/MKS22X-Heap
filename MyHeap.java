@@ -35,16 +35,4 @@ public class MyHeap{
     }
   }
 
-  public static void main(String[] args) {
-    int[] arr = {1, 2, 3, 4, 5, 0, 0, 0, 0, 0, 0};
-    System.out.println(Arrays.toString(arr));
-    pushDown(arr, 5, 0);
-    System.out.println(Arrays.toString(arr));
-    pushDown(arr, 5, 0);
-    System.out.println(Arrays.toString(arr));
-    pushDown(arr, 5, 0);
-    System.out.println(Arrays.toString(arr));
-    pushDown(arr, 5, 0);
-    System.out.println(Arrays.toString(arr));
-  }
 }
