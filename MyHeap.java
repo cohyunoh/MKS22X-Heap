@@ -1,3 +1,4 @@
+import java.util.Arrays;
 public class MyHeap{
   private static void pushDown(int[]data,int size,int index){
     if((2*index + 1) > size - 1 && (2*index + 2) > size - 1){
@@ -17,5 +18,18 @@ public class MyHeap{
       index = 2*index + 2;
       pushDown(data, size, index);
     }
+  }
+
+  public static void main(String[] args) {
+    int[] arr = {1, 2, 3, 4, 5, 0, 0, 0, 0, 0, 0};
+    System.out.println(Arrays.toString(arr));
+    pushDown(arr, 5, 0);
+    System.out.println(Arrays.toString(arr));
+    pushDown(arr, 5, 0);
+    System.out.println(Arrays.toString(arr));
+    pushDown(arr, 5, 0);
+    System.out.println(Arrays.toString(arr));
+    pushDown(arr, 5, 0);
+    System.out.println(Arrays.toString(arr));
   }
 }
