@@ -26,8 +26,12 @@ public class MyHeap{
       return ;
     }else if(data[parentIndex] >= data[index]){
       return ;
-    }else if(data[parentIndex] < data){
-
+    }else if(data[parentIndex] < data[index]){
+      int temp = data[parentIndex];
+      data[parentIndex] = data[index];
+      data[index] = temp;
+      index = parentIndex;
+      pushUp(data, index);
     }
   }
 
