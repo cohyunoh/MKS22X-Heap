@@ -21,7 +21,7 @@ public class MyHeap{
   }
 
   private static void pushDownLoop(int[]data,int size,int index){
-    while(data[(2*index + 1)] > data[index] || data[(2*index + 2)] > data[index]){
+    while((2*index + 1) < data.length && (2*index + 2) < data.length && (data[(2*index + 1)] > data[index] || data[(2*index + 2)] > data[index])){
       if(data[(2*index + 1)] > data[index]){
         int temp = data[(2*index + 1)];
         data[(2*index + 1)] = data[index];
@@ -49,5 +49,12 @@ public class MyHeap{
       index = parentIndex;
       pushUp(data, index);
     }
+  }
+
+  public static void main(String[] args) {
+    int[] data = {25, 40, 45, 20, 30, 0, 0, 0};
+    System.out.println(Arrays.toString(data));
+    pushDownLoop(data, 5, 0);
+    System.out.println(Arrays.toString(data));
   }
 }
