@@ -20,6 +20,22 @@ public class MyHeap{
     }
   }
 
+  private static void pushDownLoop(int[]data,int size,int index){
+    while(data[(2*index + 1)] > data[index] || data[(2*index + 2)] > data[index]){
+      if(data[(2*index + 1)] > data[index]){
+        int temp = data[(2*index + 1)];
+        data[(2*index + 1)] = data[index];
+        data[index] = temp;
+        index = 2*index + 1;
+      }else if(data[(2*index + 2)] > data[index]){
+        int temp = data[(2*index + 2)];
+        data[(2*index + 2)] = data[index];
+        data[index] = temp;
+        index = 2*index + 2;
+      }
+    }
+  }
+
   private static void pushUp(int[]data,int index){
     int parentIndex = ((index - 1) / 2);
     if(parentIndex < 0){
@@ -34,5 +50,4 @@ public class MyHeap{
       pushUp(data, index);
     }
   }
-
 }
