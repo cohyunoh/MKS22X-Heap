@@ -32,5 +32,9 @@ public class MyHeap{
     System.out.println(Arrays.toString(data));
     pushDown(data, 5, 0);
     System.out.println(Arrays.toString(data));
+    int[] data1 = {25, 15, 45, 20, 30, 0, 0, 0};
+    System.out.println(Arrays.toString(data1));
+    pushUp(data, 4);
+    System.out.println(Arrays.toString(data));
   }
 }
