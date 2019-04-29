@@ -27,6 +27,12 @@ public class MyHeap{
     }
   }
 
+  public static void heapify(int[] data){
+    for(int i = data.length - 1; i >= 0; i++){
+      pushDown(data, data.length, i);
+    }
+  }
+
   public static void main(String[] args) {
     int[] data = {25, 40, 45, 20, 30, 0, 0, 0};
     System.out.println(Arrays.toString(data));
