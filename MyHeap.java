@@ -1,26 +1,7 @@
 import java.util.Arrays;
 public class MyHeap{
-  private static void pushDown(int[]data,int size,int index){
-    if((2*index + 1) > size - 1 && (2*index + 2) > size - 1){
-      return ;
-    }else if(data[(2*index + 1)] <= data[index] && data[(2*index + 2)] <= data[index]){
-      return ;
-    }else if(data[(2*index + 1)] > data[index]){
-      int temp = data[(2*index + 1)];
-      data[(2*index + 1)] = data[index];
-      data[index] = temp;
-      index = 2*index + 1;
-      pushDown(data, size, index);
-    }else if(data[(2*index + 2)] > data[index]){
-      int temp = data[(2*index + 2)];
-      data[(2*index + 2)] = data[index];
-      data[index] = temp;
-      index = 2*index + 2;
-      pushDown(data, size, index);
-    }
-  }
 
-  private static void pushDownLoop(int[]data,int size,int index){
+  private static void pushDown(int[]data,int size,int index){
     while((2*index + 1) < data.length && (2*index + 2) < data.length && (data[(2*index + 1)] > data[index] || data[(2*index + 2)] > data[index])){
       if(data[(2*index + 1)] > data[index]){
         int temp = data[(2*index + 1)];
@@ -36,25 +17,20 @@ public class MyHeap{
     }
   }
 
-  private static void pushUp(int[]data,int index){
-    int parentIndex = ((index - 1) / 2);
-    if(parentIndex < 0){
-      return ;
-    }else if(data[parentIndex] >= data[index]){
-      return ;
-    }else if(data[parentIndex] < data[index]){
+  private static void pushUp(int[]data, int index){
+    while(((index - 1) / 2) >= 0 && data[((index - 1) / 2)] < data[index]){
+      int parentIndex = ((index - 1) / 2);
       int temp = data[parentIndex];
       data[parentIndex] = data[index];
       data[index] = temp;
       index = parentIndex;
-      pushUp(data, index);
     }
   }
 
   public static void main(String[] args) {
     int[] data = {25, 40, 45, 20, 30, 0, 0, 0};
     System.out.println(Arrays.toString(data));
-    pushDownLoop(data, 5, 0);
+    pushDown(data, 5, 0);
     System.out.println(Arrays.toString(data));
   }
 }
