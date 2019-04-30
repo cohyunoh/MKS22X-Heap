@@ -39,11 +39,14 @@ public class MyHeap{
     heapify(data);
     int size = data.length;
     while(size > 0){
+      System.out.println(Arrays.toString(data));
       int temp = data[size - 1];
       data[size - 1] = data[0];
       data[0] = temp;
-      size --;
+      System.out.println(Arrays.toString(data));
+      size -= 1;
       pushDown(data, size, 0);
+      System.out.println(Arrays.toString(data));
     }
   }
 
