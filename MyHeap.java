@@ -35,6 +35,18 @@ public class MyHeap{
     }
   }
 
+  public static void heapsort(int[] data){
+    heapify(data);
+    int size = data.length;
+    while(size > 0){
+      int temp = data[data.length - 1];
+      data[data.length - 1] = data[0];
+      data[0] = temp;
+      size --;
+      pushDown(data, size, 0);
+    }
+  }
+
   public static void main(String[] args) {
     int[] data = {25, 40, 45, 20, 30, 0, 0, 0};
     System.out.println(Arrays.toString(data));
