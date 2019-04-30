@@ -2,13 +2,13 @@ import java.util.Arrays;
 public class MyHeap{
 
   private static void pushDown(int[]data,int size,int index){
-    while((2*index + 1) < data.length && (2*index + 2) < data.length && (data[(2*index + 1)] > data[index] || data[(2*index + 2)] > data[index])){
-      if((2*index + 1) < data.length && data[(2*index + 1)] > data[index]){
+    while((2*index + 1) < size && (2*index + 2) < size && (data[(2*index + 1)] > data[index] || data[(2*index + 2)] > data[index])){
+      if((2*index + 1) < size && data[(2*index + 1)] > data[index]){
         int temp = data[(2*index + 1)];
         data[(2*index + 1)] = data[index];
         data[index] = temp;
         index = 2*index + 1;
-      }else if((2*index + 2) < data.length && data[(2*index + 2)] > data[index]){
+      }else if((2*index + 2) < size && data[(2*index + 2)] > data[index]){
         int temp = data[(2*index + 2)];
         data[(2*index + 2)] = data[index];
         data[index] = temp;
