@@ -29,7 +29,7 @@ public class MyHeap{
 
   public static void heapify(int[] data){
     for(int i = data.length - 1; i > -1; i--){
-      System.out.println(data[i]);
+      //System.out.println(data[i]);
       pushDown(data, data.length, i);
       pushUp(data, i);
     }
@@ -39,8 +39,8 @@ public class MyHeap{
     heapify(data);
     int size = data.length;
     while(size > 0){
-      int temp = data[data.length - 1];
-      data[data.length - 1] = data[0];
+      int temp = data[size - 1];
+      data[size - 1] = data[0];
       data[0] = temp;
       size --;
       pushDown(data, size, 0);
@@ -61,5 +61,9 @@ public class MyHeap{
     heapify(data2);
     System.out.println(Arrays.toString(data2));
     pushDown(data2, 8, 1);
+    int[] data3 = {25, 15, 45, 20, 30, 4, 50, 2, 56, 64, 47, 102, 5};
+    System.out.println(Arrays.toString(data3));
+    heapsort(data3);
+    System.out.println(Arrays.toString(data3));
   }
 }
