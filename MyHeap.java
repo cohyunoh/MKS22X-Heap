@@ -27,12 +27,10 @@ public class MyHeap{
         childIndex = (2*index + 1);
       }
       //if there is no first child then there can't be a second since it will just shift over
-      //then if the child is in fact greater than index then swap values
-      if(child > data[index]){
-        data[childIndex] = data[index];
-        data[index] = child;
-        index = childIndex;
-      }
+      //swap with child since it must be greater at this point
+      data[childIndex] = data[index];
+      data[index] = child;
+      index = childIndex;
     }
   }
 
