@@ -31,6 +31,7 @@ public class MyHeap{
     for(int i = data.length - 1; i > -1; i--){
       System.out.println(data[i]);
       pushDown(data, data.length, i);
+      pushUp(data, i);
     }
   }
 
@@ -43,7 +44,7 @@ public class MyHeap{
     System.out.println(Arrays.toString(data1));
     pushUp(data, 4);
     System.out.println(Arrays.toString(data));
-    int[] data2 = {25, 15, 45, 20, 30, 4, 50, 2};
+    int[] data2 = {25, 15, 45, 20, 30, 4, 50, 2, 56, 64, 47, 102, 5};
     System.out.println(Arrays.toString(data2));
     heapify(data2);
     System.out.println(Arrays.toString(data2));
