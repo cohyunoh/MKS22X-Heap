@@ -3,12 +3,12 @@ public class MyHeap{
 
   private static void pushDown(int[]data,int size,int index){
     while((2*index + 1) < data.length && (2*index + 2) < data.length && (data[(2*index + 1)] > data[index] || data[(2*index + 2)] > data[index])){
-      if(data[(2*index + 1)] > data[index]){
+      if((2*index + 1) < data.length && data[(2*index + 1)] > data[index]){
         int temp = data[(2*index + 1)];
         data[(2*index + 1)] = data[index];
         data[index] = temp;
         index = 2*index + 1;
-      }else if(data[(2*index + 2)] > data[index]){
+      }else if((2*index + 2) < data.length && data[(2*index + 2)] > data[index]){
         int temp = data[(2*index + 2)];
         data[(2*index + 2)] = data[index];
         data[index] = temp;
@@ -28,7 +28,8 @@ public class MyHeap{
   }
 
   public static void heapify(int[] data){
-    for(int i = data.length - 1; i >= 0; i++){
+    for(int i = data.length - 1; i > -1; i--){
+      System.out.println(data[i]);
       pushDown(data, data.length, i);
     }
   }
@@ -42,5 +43,10 @@ public class MyHeap{
     System.out.println(Arrays.toString(data1));
     pushUp(data, 4);
     System.out.println(Arrays.toString(data));
+    int[] data2 = {25, 15, 45, 20, 30, 4, 50, 2};
+    System.out.println(Arrays.toString(data2));
+    heapify(data2);
+    System.out.println(Arrays.toString(data2));
+    pushDown(data2, 8, 1);
   }
 }
