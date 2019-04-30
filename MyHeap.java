@@ -2,17 +2,28 @@ import java.util.Arrays;
 public class MyHeap{
 
   private static void pushDown(int[]data,int size,int index){
-    while((2*index + 1) < size && (2*index + 2) < size && (data[(2*index + 1)] > data[index] || data[(2*index + 2)] > data[index])){
-      if((2*index + 1) < size && data[(2*index + 1)] > data[index]){
-        int temp = data[(2*index + 1)];
-        data[(2*index + 1)] = data[index];
-        data[index] = temp;
-        index = 2*index + 1;
-      }else if((2*index + 2) < size && data[(2*index + 2)] > data[index]){
-        int temp = data[(2*index + 2)];
-        data[(2*index + 2)] = data[index];
-        data[index] = temp;
-        index = 2*index + 2;
+    while(((2*index + 1) < size && data[(2*index + 1)] > data[index]) || ((2*index + 2) < size && data[(2*index + 2)] > data[index])){
+      int child = 0;
+      int childIndex = 0;
+      if((2*index + 1) < size && (2*index + 2) < size){
+        if(data[(2*index + 1)] > data[(2*index + 2)]){
+          child = data[(2*index + 1)];
+          childIndex = (2*index + 1);
+        }else{
+          child = data[(2*index + 2)];
+          childIndex = (2*index + 2);
+        }
+      }else if((2*index + 1) < size && (2*index + 2) >= size){
+        child = data[(2*index + 1)];
+        childIndex = (2*index + 1);
+      }else if((2*index + 2) < size && (2*index + 1) >= size){
+        child = data[(2*index + 2)];
+        childIndex = (2*index + 2);
+      }
+      if(child > data[index]){
+        data[childIndex] = data[index];
+        data[index] = child;
+        index = childIndex;
       }
     }
   }
@@ -31,7 +42,6 @@ public class MyHeap{
     for(int i = data.length - 1; i > -1; i--){
       //System.out.println(data[i]);
       pushDown(data, data.length, i);
-      pushUp(data, i);
     }
   }
 
